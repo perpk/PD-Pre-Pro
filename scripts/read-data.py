@@ -29,37 +29,5 @@ def main():
 
     print("Done")
 
-    # count_files = glob.glob("/Volumes/Elements/counts/*.txt")
-    # count_files_len = len(count_files)
-    # print(f"Found {len(count_files)} count files")
-    # combined_df = None
-    # with Pool(processes=6) as pool, tqdm(total=count_files_len) as pbar:
-    #     for result in pool.imap(read_csv, count_files):
-    #         pbar.update()
-    #         pbar.refresh()
-    #         if combined_df is None:
-    #             combined_df = result
-    #         else:
-    #             combined_df = combined_df.merge(result, on="Geneid", how="outer")
-    #
-    # combined_df.set_index("Geneid", inplace=True)
-    # combined_df = combined_df.apply(pd.to_numeric, errors="coerce")
-    # combined_df.fillna(0, inplace=True)
-    # combined_df = combined_df[(combined_df.sum(axis=1) > 0)]
-    # combined_df.to_csv("ppmi_counts_matrix.csv")
-
-
 if __name__ == '__main__':
     main()
-
-# all_counts = None
-# for file in tqdm(count_files, desc="Processing Count Files"):
-#     df = pd.read_csv(file, sep="\t", comment="#", header=None)
-#     df.columns = ["Geneid", "Chr", "Start", "End", "Strand", "Length", os.path.basename(file)]
-#     df = df[["Geneid", os.path.basename(file)]]
-#     if all_counts is None:
-#         all_counts = df
-#     else:
-#         all_counts = all_counts.merge(df, on="Geneid", how="outer")
-#
-# all_counts.set_index("Geneid", inplace=True)
